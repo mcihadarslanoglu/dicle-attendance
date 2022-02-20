@@ -1,0 +1,18 @@
+
+-mobile application
+    -inteface->OOP
+        -login interface
+	-student starting attendance interface
+	-teacher starting attendance interface
+    -programming
+        -student class
+        -teacher class
+        -person abstract/interface class
+        -database class
+        -login class
+        -bluetooth class
+-database
+    -attendance structure -->+
+    -database class
+-web application
+    -interface
