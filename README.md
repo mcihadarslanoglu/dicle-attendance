@@ -1,13 +1,26 @@
 # dicle-attendance
 
 # UPDATE 1 
-<br>
-BluetoohServerSocket and BluetoothSocket are created and tested. Now client and server can make a communication like send data and receive. 
 
+<ul>
+  <li>BluetoohServerSocket and BluetoothSocket are created and tested.</li>
+</ul>
 date: 3.03.2022
 
 # UPDATE 2
 
-Some classes in the attendanceTool is seperated into each class files.
-
+<ul>
+  <li>Some classes in the attendanceTool is seperated into each class files.</li>
+</ul>
 date: 3.03.2022
+
+# UPDATE 3
+
+<ul>
+  <li>Some designs are made for client side(SocketStreamThread, ClientSocketThread,).</li>
+  <li>Client side codes are added into the project.</li>
+  <li>Server and client can communicate any more.</li>
+  
+ </ul>
+ date: <date>5.03.2022</date>
+
