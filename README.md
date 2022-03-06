@@ -24,3 +24,9 @@ date: 3.03.2022
  </ul>
  date: <date>5.03.2022</date>
 
+# UPDATE 4
+The procejt is created from scratch as it had some misdesign problems. Insteade of seperating the all classes, just two classes are created which are called Student and Teacher. 
+<ul>
+  <li></li>
+  <li></li>
+</ul>
