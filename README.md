@@ -35,3 +35,5 @@ date <date>6.03.2022</date>
   <li>Application was connected to database API</li>
   <li>After login redirects were added as template</li>
 </ul>
+
+date: <date>21.03.2022</date>
