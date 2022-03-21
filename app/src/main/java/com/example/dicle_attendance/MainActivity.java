@@ -1,8 +1,12 @@
 package com.example.dicle_attendance;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.os.Bundle;
+//import com.example.dicle_attendance.persons.Student;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,11 +18,10 @@ public class MainActivity extends AppCompatActivity {
         //Student student = new Student(this);
         //student.start();
 
-        Teacher teacher = new Teacher(this);
-        teacher.start();
+        //Teacher teacher = new Teacher(this);
+        //teacher.start();
 
-        new Thread(()->{
 
-        });
+
     }
 }

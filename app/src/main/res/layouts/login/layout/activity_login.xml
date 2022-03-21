@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E6E6DF"
+    >
+
+    <EditText
+        android:id="@+id/personID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="50sp"
+        android:layout_marginTop="325sp"
+        android:layout_marginRight="50sp"
+        android:layout_weight="10"
+        android:ems="10"
+        android:hint="ID"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textColorHint="#616161"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50sp"
+        android:layout_marginTop="400sp"
+        android:layout_marginRight="50sp"
+        android:layout_weight="10"
+
+        android:ems="10"
+        android:hint="PAROLA"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textColorHint="#616161" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500sp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:text="GİRİŞ" />
+
+    <ToggleButton
+        android:id="@+id/personType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50sp"
+        android:layout_marginTop="460sp"
+        android:textOff="Öğrenci"
+        android:textOn="Öğretmen"
+
+
+        />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100sp"
+        tools:srcCompat="@tools:sample/avatars" />
+</RelativeLayout>

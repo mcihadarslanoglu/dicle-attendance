@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/drawable/border_bottom.xml" value="0.333" />
+        <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/layout-notnight/pre_login.xml" value="1.9523026315789473" />
+        <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/layout-w1240dp/activity_pre_login.xml" value="0.23560910307898258" />
+        <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/layout-w936dp/activity_pre_login.xml" value="0.275" />
+        <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/layout/activity_pre_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/layouts/login/layout/activity_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/layouts/login/layout/layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/layouts/login/layout/pre_login.xml" value="0.33" />
         <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicleattendance/app/src/main/res/layout/activity_main.xml" value="0.18697916666666667" />
         <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicleattendance2/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
       </map>

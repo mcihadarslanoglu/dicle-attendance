@@ -1,8 +1,9 @@
-package com.example.dicle_attendance;
+package com.example.dicle_attendance.persons;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothServerSocket;
+import android.bluetooth.BluetoothGattServer;
+import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothSocket;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -21,13 +22,15 @@ public class Student extends View {
     String role;
     BluetoothAdapter btAdapter;
     Context context;
-    //BroadcastReceiver receiver;
     UUID APP_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     String SERVER_APP_NAME = "ATTENDANCE";
     BluetoothSocket  socket;
     String ID = "18354012";
+    String firstName;
+    String lastName;
+
     boolean isSigned = false;
-    Student(Context context){
+    public Student(Context context){
         super(context);
 
         this.role = "student";
@@ -52,20 +55,6 @@ public class Student extends View {
 
     }
     private void sign(BluetoothSocket target){
-
-        /*(new Thread(){
-
-            public void run(BluetoothSocket target) {
-                while (true){
-                    Log.i("Student","Responses are listening");
-                    String response =  listenData(target);
-                    if (response == ID){
-                        isSigned = true;
-                        break;
-                    }
-                }
-            }
-        }).start();*/
 
         new Thread(()->{
             while (true){
@@ -178,4 +167,6 @@ public class Student extends View {
             }
         }
     };
+
+
 }

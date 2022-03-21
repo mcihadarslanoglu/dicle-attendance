@@ -1,7 +1,28 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        jcenter()
+        google()
+    }
+}
+
+
+
 plugins {
     id 'com.android.application' version '7.1.0' apply false
     id 'com.android.library' version '7.1.0' apply false
+
+}
+
+allprojects {
+    repositories {
+
+        google()
+        mavenCentral()
+
+    }
+    dependencies {
+    }
 }
 
 task clean(type: Delete) {

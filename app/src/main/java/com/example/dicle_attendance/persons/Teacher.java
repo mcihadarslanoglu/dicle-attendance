@@ -1,20 +1,18 @@
-package com.example.dicle_attendance;
+package com.example.dicle_attendance.persons;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.BlendMode;
-import android.icu.util.Output;
+
 import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
-import java.sql.Array;
-import java.sql.ClientInfoStatus;
+
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -27,7 +25,7 @@ public class Teacher {
     BluetoothSocket client;
     ArrayList<String> requests = new ArrayList<String>();
     Context context;
-    Teacher(Context context){
+    public Teacher(Context context){
         this.role = "Teacher";
         this.btAdapter = BluetoothAdapter.getDefaultAdapter();
         this.SERVER_APP_NAME = SERVER_APP_NAME;
