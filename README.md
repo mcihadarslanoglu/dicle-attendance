@@ -28,3 +28,10 @@ date: 3.03.2022
 The procejt is created from scratch as it had some misdesign problems. Insteade of seperating the all classes, just two classes are created which are called Student and Teacher. 
 
 date <date>6.03.2022</date>
+
+# UPDATE 5
+<ul>
+  <li>Login page was added</li>
+  <li>Application was connected to database API</li>
+  <li>After login redirects were added as template</li>
+</ul>
