@@ -49,18 +49,6 @@
         android:layout_centerHorizontal="true"
         android:text="GİRİŞ" />
 
-    <ToggleButton
-        android:id="@+id/personType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50sp"
-        android:layout_marginTop="460sp"
-        android:textOff="Öğrenci"
-        android:textOn="Öğretmen"
-
-
-        />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"

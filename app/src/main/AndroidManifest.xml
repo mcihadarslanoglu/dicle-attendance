@@ -23,17 +23,34 @@
         android:theme="@style/Theme.Dicleattendance" >
 
         <activity
-            android:name=".Auth.Login"
+            android:name=".Auth.PreLogin"
             android:exported="true" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
+        </activity>
+
+        <activity
+            android:name=".Auth.Login"
+            android:exported="true" >
+
+
+
         </activity>
 
         <activity
             android:name=".activity_persons.ActivityStudent"
+            android:exported="true" >
+
+        </activity>
+
+        <activity
+            android:name=".activity_persons.ActivityTeacher"
             android:exported="true" >
 
         </activity>

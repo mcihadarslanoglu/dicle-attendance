@@ -23,6 +23,10 @@ public class LoginResponse {
     @SerializedName("mobile_activated")
     private  String mobile_activated;
 
+    @SerializedName("is_success")
+    private String is_success;
+
+
     public String getMobile_activated() {
         return mobile_activated;
     }
@@ -39,6 +43,7 @@ public class LoginResponse {
         return last_name;
     }
 
+    public String getIs_success(){ return is_success; }
 
 
     @SerializedName("userId")
@@ -78,6 +83,7 @@ public class LoginResponse {
             user.put("first_name",this.getFirst_name());
             user.put("mobile_activated",this.getMobile_activated());
             user.put("student_id",this.getStudent_id());
+            user.put("is_success",this.getIs_success());
         } catch (JSONException e) {
             e.printStackTrace();
         }
