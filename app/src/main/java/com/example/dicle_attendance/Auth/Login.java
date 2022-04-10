@@ -42,17 +42,16 @@ public class Login extends AppCompatActivity {
     TextView password;
 
     JSONObject user=null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+
         //personType = findViewById(R.id.personType);
 
-        loginButton = findViewById(R.id.loginButton);
+
         //Log.i("Login","Login button is " + getIntent().getExtras().getString("personType"));
 
-        personID = findViewById(R.id.personID);
-        password = findViewById(R.id.password);
 
 
 
@@ -101,7 +100,10 @@ public class Login extends AppCompatActivity {
             }
         }
 
-
+        setContentView(R.layout.activity_login);
+        loginButton = findViewById(R.id.loginButton);
+        personID = findViewById(R.id.personID);
+        password = findViewById(R.id.password);
 
 
 
@@ -201,7 +203,7 @@ public class Login extends AppCompatActivity {
                     fileAccount.write(user.toString().getBytes(StandardCharsets.UTF_8));
                     fileAccount.close();
 
-                    Log.i("Login", "personType is "+ personType);
+                    Log.i("Login", "personType is "+ user.get("personType"));
                     //Log.i("Login", "personType is "+ personTypes.get(personType.isChecked()));
                     if(user.get("personType").equals("teacher")){
                         //Teacher person = new Teacher(this);

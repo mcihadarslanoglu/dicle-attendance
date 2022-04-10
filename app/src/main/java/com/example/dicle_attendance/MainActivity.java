@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.os.Bundle;
+
+import com.example.dicle_attendance.persons.Teacher;
 //import com.example.dicle_attendance.persons.Student;
 
 

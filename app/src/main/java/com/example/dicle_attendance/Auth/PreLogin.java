@@ -21,7 +21,7 @@ public class PreLogin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pre_login);
+
 
 
         File file1 = getBaseContext().getFileStreamPath("account.json");
@@ -29,6 +29,7 @@ public class PreLogin extends AppCompatActivity {
             Intent loginPage = new Intent(this, Login.class);
             startActivity(loginPage);
         }
+        setContentView(R.layout.activity_pre_login);
 
 
         teacher = findViewById(R.id.teacher);
