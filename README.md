@@ -37,3 +37,13 @@ date <date>6.03.2022</date>
 </ul>
 
 date: <date>21.03.2022</date>
+
+# UPDATE 6
+
+<ul>
+  <li>Start and stop attendance were added</li>
+  <li>Student list was added</li>
+  <li>Prelogin activity was added</li>
+</ul>
+
+date: <date>10.04.2022</date>
