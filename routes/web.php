@@ -59,4 +59,10 @@ Route::get('/lessons/getLessons', function(){
 	return response()->json($lessons,200);
 });
 
+Route::post("attendance/submit",function(){
+	return response()->json(request()-all());
+
+});
+
+
 ?>
