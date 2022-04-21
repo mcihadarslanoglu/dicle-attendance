@@ -60,7 +60,7 @@ Route::get('/lessons/getLessons', function(){
 });
 
 Route::post("attendance/submit",function(){
-	return response()->json(request()-all());
+	return response(request()-all());
 
 });
 
