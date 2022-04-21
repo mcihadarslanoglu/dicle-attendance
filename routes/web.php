@@ -64,5 +64,10 @@ Route::post("attendance/submit",function(){
 
 });
 
+Route::get("attendance/submit",function(){
+	return response("test");
+
+});
+
 
 ?>
