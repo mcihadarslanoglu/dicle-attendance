@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\DB;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,7 +57,10 @@ Route::get('/login', function () {
 	});
 
 Route::get('/lessons/getLessons', function(){
-	$lessons = array(array("lesson_id"=>"EEZ401","lesson_name"=>"BİTİRME PROJESİ"), array("lesson_id"=>"EESB003","lesson_name"=>"YAPAY SİNİR AĞLARI"));	
+	$userID = request()->input("id");
+	$personType = request()->input("personType");
+	$lessons = DB::table($personType."_has_lesson")->where("id",$userID);
+	//$lessons = array(array("lesson_id"=>"EEZ401","lesson_name"=>"BİTİRME PROJESİ"), array("lesson_id"=>"EESB003","lesson_name"=>"YAPAY SİNİR AĞLARI"));	
 	return response()->json($lessons,200);
 });
 
@@ -67,6 +72,11 @@ Route::post("attendance/submit",function(){
 Route::get("attendance/submit",function(){
 	return response("test");
 
+});
+
+Route::get("test",function(){
+
+	return \DB::select("SHOW DATABASES");
 });
 
 
