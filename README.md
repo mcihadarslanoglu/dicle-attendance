@@ -47,3 +47,15 @@ date: <date>21.03.2022</date>
 </ul>
 
 date: <date>10.04.2022</date>
+
+# UPDATE 7
+
+<ul>
+  <li>Login API added</li>
+  <li>login API connected to database </li>
+  <li>getLessons API added</li>
+  <li>Mobile application load lessons function added</li>
+  <li>getLessons API connected to database</li>
+</ul>
+
+date: <date>01.05.2022</date>
