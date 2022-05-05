@@ -38,6 +38,16 @@ Route::post('/login', function () {
 });
 
 Route::get('/login', function () {
+	/**
+	 * returns user credentials if it is existed. 
+	 * {"first_name":"Muhammed Cihad","last_name": "ARSLANOĞLU","mobile_activated":true/false,"student_id":"18354012","is_success":"1"}
+	 * 
+	 * if there is no user with the provided username and password, returns
+	 * {"is_success":"0","msg":"invalid username or password"}
+	 */
+	 
+
+
 	$loginCredentials = json_decode(request()->input("loginCredentials"),true);
 	//return $loginCredentials["personType"];
 	$query = json_decode(json_encode(DB::table($loginCredentials["personType"])->where(["id"=>$loginCredentials["id"],
@@ -69,8 +79,8 @@ Route::get('/login', function () {
 	/*
 	return response('{"first_name":"Muhammed Cihad",
 	     "last_name": "ARSLANOĞLU",
-	     "mobile_activated":1,
-	     "student_id":18354012
+	     "mobile_activated":true/false,
+	     "student_id":"18354012"
 
 	}',200)->header("Content-Type", "application/json");
 	*/
@@ -107,7 +117,30 @@ Route::post("attendance/submit",function(){
 });
 
 Route::get("attendance/submit",function(){
-	return response()->json(request()->input("attendanceInformations"));
+	$attendanceInformations = json_decode((request()->input("attendanceInformations")),true); 
+	
+	$attendanceInformations["attendanceList"] = array_unique(explode(",",$attendanceInformations["attendanceList"]));
+	
+
+	$allStudents = DB::table("student_has_lesson")->where(["lesson_id"=>$attendanceInformations["lesson_id"]])->get();
+	$notCameStudents = array_diff($allStudents->pluck("id")->toArray(),$attendanceInformations["attendanceList"]);
+	//DB::table("attendance")->insert([$notCameStudents=>"TRUE"]);
+
+	for($count=0;$count<(int)$attendanceInformations["lessonCount"];$count++){
+		foreach($notCameStudents as $id){
+			DB::table("attendance")->insert([
+				"student_id" =>$id, 
+				"present"=>"FALSE",
+				"lesson_id"=>$attendanceInformations["lesson_id"]
+				]);
+		}
+		
+
+	}
+	
+	//return var_dump(json_encode($attendanceInformations));
+	return response()->json(array("is_success"=>"1","msg"=>"the all attendances were inserted into database"));
+	//return response()->json(request()->input("attendanceInformations"));
 });
 
 
