@@ -129,7 +129,7 @@ Route::get("attendance/submit",function(){
 	for($count=0;$count<(int)$attendanceInformations["lessonCount"];$count++){
 		foreach($notCameStudents as $id){
 			DB::table("attendance")->insert([
-				"student_id" =>$id, 
+				"id" =>$id, 
 				"present"=>"FALSE",
 				"lesson_id"=>$attendanceInformations["lesson_id"]
 				]);
