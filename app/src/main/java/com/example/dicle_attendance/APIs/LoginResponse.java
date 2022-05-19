@@ -11,8 +11,8 @@ import org.json.JSONObject;
 public class LoginResponse {
 
 
-    @SerializedName("student_id")
-    private String student_id;
+    @SerializedName("id")
+    private String id;
 
     @SerializedName("first_name")
     private String first_name;
@@ -31,8 +31,8 @@ public class LoginResponse {
         return mobile_activated;
     }
 
-    public String getStudent_id() {
-        return student_id;
+    public String getId() {
+        return id;
     }
 
     public String getFirst_name() {
@@ -46,44 +46,19 @@ public class LoginResponse {
     public String getIs_success(){ return is_success; }
 
 
-    @SerializedName("userId")
-    private String userId;
 
-    @SerializedName("id")
-    private String id;
-
-    @SerializedName("title")
-    private String title;
-
-    @SerializedName("completed")
-    private String completed;
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getCompleted() {
-        return completed;
-    }
 
     public JSONObject getUser(){
         JSONObject user = new JSONObject();
 
 
         try {
-            user.put("last_name",this.getLast_name());
             user.put("first_name",this.getFirst_name());
+            user.put("last_name",this.getLast_name());
             user.put("mobile_activated",this.getMobile_activated());
-            user.put("student_id",this.getStudent_id());
+            user.put("id",this.getId());
             user.put("is_success",this.getIs_success());
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

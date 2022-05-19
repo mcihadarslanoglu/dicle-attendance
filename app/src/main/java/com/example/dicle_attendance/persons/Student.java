@@ -12,6 +12,9 @@ import android.content.IntentFilter;
 import android.util.Log;
 import android.view.View;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -27,10 +30,8 @@ public class Student extends View {
     UUID APP_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     String SERVER_APP_NAME = "ATTENDANCE";
     BluetoothSocket  socket;
-    String ID = "18354012";
-    String firstName;
-    String lastName;
-
+    String ID;
+    JSONObject user;
     public boolean isSigned() {
         return this.isSigned;
     }
@@ -38,16 +39,24 @@ public class Student extends View {
     Boolean signFlag;
 
     boolean isSigned = false;
-    public Student(Context context){
+    public Student(Context context, String user){
         super(context);
 
         this.role = "student";
         this.btAdapter = BluetoothAdapter.getDefaultAdapter();
         this.context = context;
         this.APP_UUID = APP_UUID;
-        this.ID = ID;
         this.isSigned = isSigned;
-        this.isSigned = isSigned;
+        try {
+            this.user = new JSONObject(user);
+            this.ID = this.user.get("id").toString();
+            Log.i("Student","Student user id is " + this.user.get("id").toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+
     }
     private BluetoothSocket createSocket(BluetoothDevice device){
 
@@ -67,19 +76,22 @@ public class Student extends View {
     private void sign(BluetoothSocket target){
         //this.signFlag = true;
 
-        new Thread(()->{
+        Thread signThread = new Thread(()->{
             while (this.signFlag){
                 Log.i("Student","Responses are listening");
                 String response =  listenData(target);
                 Log.i("Student","Obtained message is " + response);
-                if(response != null){
-                    if (response.equals(ID)){
 
-                        Log.i("Student","In if statement" + ID );
+                if(response != null){
+                    if (response.equals(this.ID)){
+
+                        Log.i("Student","In if statement" + this.ID );
                         this.isSigned = true;
-                        stop();
+                        this.signFlag = false;
+
                         try {
                             target.close();
+                            stop();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -88,14 +100,16 @@ public class Student extends View {
                 }
 
             }
-        }).start();
+        });
+
+        signThread.start();
 
         int ct = 0;
         while (!this.isSigned){
             Log.i("Student","Sign is been sending");
             this.sendData(target,this.ID);
             ct = ct + 1;
-            Log.i("Student","Sign has been sent "+this.ID+"and ct is "+ct);
+            Log.i("Student","Sign has been sent "+this.ID+"and ct is "+ct + " is bluetooth connected ? "+target.isConnected());
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -103,11 +117,17 @@ public class Student extends View {
             }
             if (ct>3){
                 Log.i("Student","ct is bigger than 3");
-                this.stop();
+
                 try {
+
+
+                    target.close();
+                    Log.i("Student", "getSign socket is closed");
+                    this.stop();
                     Thread.sleep(2000);
                     Log.i("Student","Sleep is done");
-                } catch (InterruptedException e) {
+                    System.exit(0);
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 Log.i("Student","Application is stopped as student");
@@ -143,6 +163,7 @@ public class Student extends View {
 
     private void enableBT(){
         this.btAdapter.enable();
+
     }
     private void disableBT(){
 
@@ -235,15 +256,10 @@ public class Student extends View {
             Log.i("Student","The action is "+ action);
             if (BluetoothAdapter.ACTION_DISCOVERY_STARTED.equals(action)){
                 Log.i("Student","Discovery is started");
-            }/*else if(action.equals(BluetoothDevice.ACTION_UUID)){
-                Log.i("Student","In UUID action");
-                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                Log.i("Student","UUID is " + device.fetchUuidsWithSdp());
-
-            }*/
+            }
             else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)){
                 Log.i("Student","Device scanning is started again.");
-                //btAdapter.startDiscovery();
+                btAdapter.startDiscovery();
 
 
             }else if (BluetoothDevice.ACTION_FOUND.equals(action)){
@@ -251,12 +267,7 @@ public class Student extends View {
                 String deviceName = device.getName();
 
 
-
-
-
                 Log.i("Student","A new device found to connect. "+device.getName());
-                Log.i("Student","Alias is . "+device.getAlias());
-                Log.i("Student","UUID . "+device.getUuids());
                 Log.i("Student", "out SERVER_APP_NAME if statement "+ SERVER_APP_NAME);
                 if(device != null && deviceName != null){
                     if (deviceName.equals(SERVER_APP_NAME)){

@@ -109,12 +109,16 @@ public class Login extends AppCompatActivity {
 
         loginButton.setOnClickListener(view -> {
             try {
+                JSONObject loginCredentials = new JSONObject();
                 personType = getIntent().getExtras().getString("personType");
+                loginCredentials.put("id",personID.getText());
+                loginCredentials.put("password",password.getText());
+                loginCredentials.put("personType",personType);
                 Log.i("Login","Retrofit start...");
                 APIInterface sss = RetrofitClient.getRetrofitInstance().create(APIInterface.class);
                 Log.i("Login","Retrofit interface start...");
 
-                Call<LoginResponse> call = sss.loginUser();
+                Call<LoginResponse> call = sss.loginUser(loginCredentials);
                 //Call<LoginResponse> call = sss.test();
                 Log.i("Login","Retrofit sss...");
 
@@ -123,6 +127,7 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                         JSONObject user = response.body().getUser();
+
 
                         Log.i("Login","Request: "+response.body().getUser());
                         try {
@@ -196,7 +201,7 @@ public class Login extends AppCompatActivity {
             Context c = getApplicationContext();
 
             if(user.get("is_success").equals("1")){
-                if(user.get("mobile_activated").equals("1")){
+                if(user.get("personType").equals("teacher")){
 
                     FileOutputStream fileAccount = openFileOutput("account.json", Context.MODE_PRIVATE);
 
@@ -204,30 +209,36 @@ public class Login extends AppCompatActivity {
                     fileAccount.close();
 
                     Log.i("Login", "personType is "+ user.get("personType"));
-                    //Log.i("Login", "personType is "+ personTypes.get(personType.isChecked()));
-                    if(user.get("personType").equals("teacher")){
-                        //Teacher person = new Teacher(this);
-                        Log.i("Login","Teacher object is created");
-                        Intent teacherPage = new Intent(c, ActivityTeacher.class);
-                        teacherPage.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(teacherPage);
 
-                        //finish();
+                    //Teacher person = new Teacher(this);
+                    Log.i("Login","Teacher object is created");
+                    Intent teacherPage = new Intent(c, ActivityTeacher.class);
+                    teacherPage.putExtra("user",user.toString());
 
+                    teacherPage.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(teacherPage);
 
-                    }if(user.get("personType").equals("student")){
+                    //finish();
+
+                }else if(user.get("personType").equals("student") ){
+                    if(user.get("mobile_activated").equals("false")){
+
+                        FileOutputStream fileAccount = openFileOutput("account.json", Context.MODE_PRIVATE);
+
+                        fileAccount.write(user.toString().getBytes(StandardCharsets.UTF_8));
+                        fileAccount.close();
+
+                        Log.i("Login", "personType is "+ user.get("personType"));
                         //Student person = new Student(this);
                         Log.i("Login","Student object is created");
                         Intent studentPage = new Intent(c, ActivityStudent.class);
+                        studentPage.putExtra("user",user.toString());
                         studentPage.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(studentPage);
-
-
-
-                        //finish();
+                    }else {
+                        Toast.makeText(c,"Account is already activated",Toast.LENGTH_SHORT).show();
                     }
-                }else{
-                    Toast.makeText(c,"Account is already activated",Toast.LENGTH_SHORT).show();
+
                 }
             }else{
                 Toast.makeText(c,"Invalid credentials",Toast.LENGTH_SHORT).show();

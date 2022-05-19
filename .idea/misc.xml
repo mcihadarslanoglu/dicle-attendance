@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/drawable/attendance_submit_button.xml" value="0.3325" />
         <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/drawable/border_bottom.xml" value="0.333" />
         <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3325" />
         <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/drawable/round_button.xml" value="0.3325" />
@@ -11,8 +12,10 @@
         <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/layout-w936dp/activity_pre_login.xml" value="0.275" />
         <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/layout/activity_pre_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/layouts/attendance/layout/activity_attendance_submit.xml" value="0.1" />
         <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/layouts/attendance/layout/activity_student_attendance.xml" value="0.25" />
         <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/layouts/attendance/layout/activity_teacher_attendance.xml" value="0.25" />
+        <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/layouts/attendance/layout/attendance_submit.xml" value="0.67" />
         <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/layouts/login/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/layouts/login/layout/activity_pre_login.xml" value="0.33" />
         <entry key="..\:/Users/monst/Desktop/DICLE-ATTENDANCE/dicle-attendance/app/src/main/res/layouts/login/layout/activity_student_attendance.xml" value="0.36666666666666664" />

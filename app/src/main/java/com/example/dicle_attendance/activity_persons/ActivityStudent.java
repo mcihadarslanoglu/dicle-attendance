@@ -15,12 +15,16 @@ import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class ActivityStudent extends AppCompatActivity {
 
     public ToggleButton attendanceActionButton;
     public Student person;
     public String attendanceStatus;
     public TextView signState;
+    public String user;
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -28,7 +32,10 @@ public class ActivityStudent extends AppCompatActivity {
         setContentView(R.layout.activity_student_attendance);
         attendanceActionButton = findViewById(R.id.attendanceActionButton);
         signState = findViewById(R.id.signState);
-        person = new Student(this);
+        Intent intent = getIntent();
+        person = new Student(this, intent.getStringExtra("user"));
+
+
         attendanceActionButton.setOnClickListener(view -> {
             if(attendanceActionButton.isChecked()){
                 if(!person.isSigned()){

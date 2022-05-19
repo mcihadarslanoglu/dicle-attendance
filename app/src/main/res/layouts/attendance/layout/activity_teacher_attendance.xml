@@ -39,7 +39,7 @@
         <TextView
             android:id="@+id/signState"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:textColor="@color/black">
 
         </TextView>
@@ -50,24 +50,54 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="25dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        >
+        <ToggleButton
+            android:id="@+id/attendanceActionButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_button"
+            android:textColor="@color/white"
+            android:textOff="Başlat"
+            android:textOn="Durdur"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="315dp">
 
-            <ToggleButton
-                android:id="@+id/attendanceActionButton"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:background="@drawable/round_button"
-                android:textColor="@color/white"
-                android:textOff="Başlat"
-                android:textOn="Durdur">
 
-
-            </ToggleButton>
+        </ToggleButton>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="25dp">
+
+        <Button
+            android:id="@+id/attendanceSubmitButton"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/attendance_submit_button"
+            android:backgroundTint="#FFA500"
+            android:text="Bitir"
+
+            android:textColor="@color/white"
+>
+
+
+        </Button>
+
+    </LinearLayout>
+
+
 
 
 
